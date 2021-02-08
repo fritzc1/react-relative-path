@@ -1,3 +1,54 @@
+# Steps to customize Create React App with "absolute" pathname imports
+Used to use:  
+  import item from '../../Api2/Item';  
+Now you can do:  
+  import item from '~/Api2/Item';  
+1. npm i --dev react-app-rewired
+1. npm i --dev babel-plugin-root-import
+1. Create file **config-overrides.js:** in project root to add the babel customization:
+    ```
+    const { override, addBabelPlugin } = require('customize-cra');
+    module.exports = override(
+    addBabelPlugin(
+        ["babel-plugin-root-import",{
+            "rootPathSuffix": "src",
+            "rootPathPrefix": "~",
+        }]
+    )
+    );
+    ```
+1. edit package.json scripts. replace "react-scripts" with "react-app-rewired" as shown:
+    ```
+    "scripts": {
+        "start": "react-app-rewired start",
+        "build": "react-app-rewired build",
+        "test": "react-app-rewired test",
+        "eject": "react-scripts eject"
+    },
+    ```
+1. Now change all your imports to use "~/" to start from the "src" folder, which is sort of the root of where you can import from.
+1. Create file **jsconfig.js:** in project root to restore VSCode path suggestion/autocompletion:
+    ```
+    {
+        "compilerOptions": {
+            "target": "ES6",
+            "module": "commonjs",
+            "allowSyntheticDefaultImports": true,
+            "baseUrl": "./",
+            "paths": {
+            "~/*": ["./src/*"]
+            }
+        }
+    }
+    ```
+
+This is based off of this tutorial:  
+https://medium.com/@leonardobrunolima/react-tips-working-with-relative-path-using-create-react-app-fe55c5f97a21  
+And updates made due to deprecation of function:  
+https://github.com/entwicklerstube/babel-plugin-root-import/issues/69  
+  
+  
+  
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
