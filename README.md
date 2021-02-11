@@ -27,7 +27,7 @@ Now you can do:
     },
     ```
 1. Now change all your imports to use "~/" to start from the "src" folder, which is sort of the root of where you can import from.
-1. Create file **jsconfig.js:** in project root to restore VSCode path suggestion/autocompletion:
+1. Create file **jsconfig.json:** in project root to restore VSCode path suggestion/autocompletion:
     ```
     {
         "compilerOptions": {
