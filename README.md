@@ -3,8 +3,9 @@ Used to use:
   import item from '../../Api2/Item';  
 Now you can do:  
   import item from '~/Api2/Item';  
-1. npm i --dev react-app-rewired
+1. npm i --dev react-app-rewired   (<- seems like u should use --also=dev instead of --dev)
 1. npm i --dev babel-plugin-root-import
+1. npm i --also=dev customize-cra (<- this is not in all tutorials)
 1. Create file **config-overrides.js:** in project root to add the babel customization:
     ```
     const { override, addBabelPlugin } = require('customize-cra');
