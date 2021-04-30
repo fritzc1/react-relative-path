@@ -3,11 +3,9 @@
 ## Why did I make this repository?
 I made this because other tutorials I found didn't quite work because of CRA changes, and some methods were deprecated. As of 4/2021 this method works.
 
-
-Original React imports:  
-  `import item from '../../Api2/Item';`  
-Now you can do:  
-  `import item from '~/Api2/Item';`  
+Original React imports | Now you can do 
+------|------
+`import item from '../../Api2/Item';` | `import item from '~/Api2/Item';`  
 
 1. npm i --also=dev react-app-rewired   (<- seems like u should use --also=dev instead of --dev)
 1. npm i --also=dev babel-plugin-root-import
