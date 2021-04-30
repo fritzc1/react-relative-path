@@ -3,9 +3,9 @@ Used to use:
   import item from '../../Api2/Item';  
 Now you can do:  
   import item from '~/Api2/Item';  
-1. npm i --dev react-app-rewired   (<- seems like u should use --also=dev instead of --dev)
-1. npm i --dev babel-plugin-root-import
-1. npm i --also=dev customize-cra (<- this is not in all tutorials)
+1. npm i --also=dev react-app-rewired   (<- seems like u should use --also=dev instead of --dev)
+1. npm i --also=dev babel-plugin-root-import
+1. npm i --also=dev customize-cra       (<- this is not in all tutorials, but should be done!)
 1. Create file **config-overrides.js:** in project root to add the babel customization:
     ```
     const { override, addBabelPlugin } = require('customize-cra');
@@ -28,7 +28,7 @@ Now you can do:
     },
     ```
 1. Now change all your imports to use "~/" to start from the "src" folder, which is sort of the root of where you can import from.
-1. Create file **jsconfig.js:** in project root to restore VSCode path suggestion/autocompletion:
+1. Create file **jsconfig.json:** in project root to restore VSCode path suggestion/autocompletion:
     ```
     {
         "compilerOptions": {
